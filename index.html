@@ -235,7 +235,7 @@
     }
 
     .hero-desc {
-      max-width: 580px;
+      max-width: 721px;
       color: var(--muted);
       font-size: 1.05rem;
       margin-top: 1.8rem;
@@ -760,16 +760,19 @@
 ══════════════════════════════════════════════════════════ -->
 <section id="hero">
   <h1 class="hero-wordmark">SKYNAV</h1>
-  <p class="hero-sub">DevPoint &nbsp;·&nbsp; Departure Deviation Point Calculator</p>
+  <p class="hero-sub">DevPoint &nbsp;·&nbsp; Deviation Point Calculator</p>
   <p class="hero-desc">
     A professional desktop tool for flight operations engineers. It computes departure deviation points along SID procedures using NavDB or ARINC 424 data. It also has the ability to convert the gross flight path into a net flight path for visualization in Google Earth.
+  </p>
+  <p class="hero-desc">
+    It helps airlines complying with EASA CAT.POL.A.210 Take-off obstacle clearance.
   </p>
   <div class="hero-badges">
     <span class="badge">🖥️ Windows 11</span>
     <span class="badge">✈️ All Airbus Aircraft</span>
     <span class="badge">📡 Navigation Database or ARINC 424</span>
-    <span class="badge">🔐 Offline Licensed</span>
     <span class="badge">🗺️ KML Output</span>
+    <span class="badge">🌐 Splay Area creation</span>
   </div>
   <div class="hero-cta">
     <a class="btn-primary" href="#download">⬇ Download <span id="hero-version"></span></a>
@@ -975,8 +978,8 @@
         <p class="mode-title">NavDB Mode</p>
         <p class="mode-desc">
           Uses a full aircraft navigation database export to resolve the
-          complete SID leg sequence — including leg types (CF, TF, DF, VA, RF…),
-          altitude constraints, and transition waypoints. Provides the highest
+          complete SID leg sequence including leg types (CF, TF, DF, VA, RF…)
+           and transition waypoints. Provides the highest
           geometric accuracy for production and regulatory use.
         </p>
       </div>
@@ -985,8 +988,9 @@
         <p class="mode-title">ARINC424 Mode</p>
         <p class="mode-desc">
           When no NavDB is available, derives a straight-out departure track from
-          AptDB runway coordinates and magnetic variation. You can then use your ARINC424 database to complete the SID leg sequence.
+          AptDB runway coordinates and magnetic variation. You can then use your ARINC424 database to complete the SID leg sequence. 
         </p>
+        <p class="mode-desc">Just leave the NavDB CSV empty and the app will automatically switch to ARINC424 mode.</p>
       </div>
     </div>
 
@@ -994,7 +998,7 @@
       <table class="accuracy-table">
         <thead>
           <tr>
-            <th>Factor</th>
+            <th></th>
             <th>NavDB Mode</th>
             <th>ARINC424 Mode</th>
           </tr>
@@ -1006,7 +1010,7 @@
             <td class="ok">Not modelled</td>
           </tr>
           <tr>
-            <td>SID-specific routing</td>
+            <td>SID routing</td>
             <td class="good">Yes</td>
             <td class="ok">Straight-out only</td>
           </tr>
@@ -1014,6 +1018,16 @@
             <td>Flight phases</td>
             <td class="good">EO defined by the user</td>
             <td class="good">EO defined by the user</td>
+          </tr>
+          <tr>
+            <td>Splay Area computation</td>
+            <td class="good">Yes</td>
+            <td class="good">Yes</td>
+          </tr>
+          <tr>
+            <td>Aircraft selection</td>
+            <td class="good">Yes</td>
+            <td class="good">Yes</td>
           </tr>
           <tr>
             <td>Output formats</td>
