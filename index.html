@@ -609,7 +609,7 @@
     ════════════════════════════════════════════════════════ */
     #guide {
       padding: 5rem 0;
-      background: var(--bg);
+      background: var(--bg2);
     }
 
     .guide-header { margin-bottom: 3rem; }
@@ -675,7 +675,7 @@
     ════════════════════════════════════════════════════════ */
     #download {
       padding: 5rem 0 6rem;
-      background: var(--bg2);
+      background: var(--bg);
     }
 
     .download-card {
@@ -771,7 +771,7 @@
        FOOTER
     ════════════════════════════════════════════════════════ */
     footer {
-      background: var(--bg);
+      background: var(--bg2);
       border-top: 1px solid var(--border);
       padding: 2rem;
       text-align: center;
@@ -799,6 +799,8 @@
       .download-card { grid-template-columns: 1fr; }
       .dl-btn { width: 100%; justify-content: center; }
       .section-title { font-size: 1.6rem; }
+      .nav-brand { font-size: 0.8rem; }
+      .nav-brand span { font-size: 0.6rem;}
     }
 
     /* ── Scroll-reveal ───────────────────────────────────────── */
@@ -825,7 +827,6 @@
     <li><a href="#features">Features</a></li>
     <li><a href="#video">Demo</a></li>
     <li><a href="#splay">Splay Area</a></li>
-    <li><a href="#setup">GrtoH Setup</a></li>
     <li><a href="#guide">User Guide</a></li>
     <li><a href="#download">Download</a></li>
   </ul>
@@ -843,7 +844,7 @@
   <h1 class="hero-wordmark">SKYNAV</h1>
   <p class="hero-sub">DevPoint &nbsp;·&nbsp; Deviation Point Calculator</p>
   <p class="hero-desc">
-    A professional desktop tool for flight operations engineers. It computes departure deviation points along SID procedures using NavDB or ARINC 424 data. It also has the ability to convert the gross flight path into a net flight path for visualization in Google Earth.
+    A professional desktop tool for flight operations engineers. It computes departure deviation points along SID procedures using NavDB or ARINC 424 data. It also has the ability to convert the splay area into a net flight path for visualization in Google Earth.
   </p>
   <p class="hero-desc">
     It helps airlines complying with EASA CAT.POL.A.210 Take-off obstacle clearance.
@@ -1021,83 +1022,6 @@
     </div>
   </div>
 </section>
-
-
-<!-- ══════════════════════════════════════════════════════════
-     GRTOH SETUP
-══════════════════════════════════════════════════════════ -->
-<section id="setup">
-  <div class="inner">
-
-    <div class="hud-divider">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E74C3C" stroke-width="1.5">
-        <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/>
-        <line x1="12" y1="3" x2="12" y2="7"/><line x1="12" y1="17" x2="12" y2="21"/>
-        <line x1="3" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="21" y2="12"/>
-      </svg>
-    </div>
-
-    <div class="setup-layout">
-      <div class="reveal">
-        <p class="section-eyebrow">Before first launch</p>
-        <h2 class="section-title">GrtoH Database Setup</h2>
-        <p class="section-lead">
-          SKYNAV DevPoint cannot calculate deviation points without a populated
-          GrtoH table. This is a one-time setup that takes under two minutes.
-        </p>
-        <div class="warn-box">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E74C3C" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          <p>GrtoH files are <strong>not bundled</strong> with the installer. They contain
-          simulator specific altitude performance data that you export from your own
-          performance tool.</p>
-        </div>
-        <div class="steps">
-          <div class="step">
-            <div class="step-num">1</div>
-            <div class="step-body">
-              Navigate to
-              <code>%PROGRAMFILES%\SKYNAV DevPoint\Data\GrtoH\</code> and check Readme.txt.
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="step-num">3</div>
-            <div class="step-body">
-              <strong>Copy your CSV files into the folder.</strong> One file per aircraft
-              . The filename shall be the aircraft database name.
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">4</div>
-            <div class="step-body">
-              <strong>Launch SKYNAV DevPoint.</strong> The app scans the folder on startup.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="reveal">
-
-        <div class="code-block" style="margin-top:1.25rem">
-          <div class="code-block-header">
-            <div class="dots">
-              <div class="dot dot-r"></div>
-              <div class="dot dot-y"></div>
-              <div class="dot dot-g"></div>
-            </div>
-            <span>Folder structure after setup</span>
-          </div>
-          <pre><span class="c-blue">GrtoH\</span>
-            ├── <span class="c-green">AB100A01.csv</span>
-            ├── <span class="c-green">AB200A01.csv</span>
-            ├── <span class="c-green">AB300A01.csv</span>
-            └── <span class="c-green">AB400A01.csv</span></pre>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <!-- ══════════════════════════════════════════════════════════
      USER GUIDE
@@ -1306,6 +1230,11 @@ async function fetchLatestRelease() {
       if (el) el.textContent = tag;
     });
 
+    // Update download buttons
+    //['dl-main-btn', 'nav-dl-btn'].forEach(id => {
+    //  const el = document.getElementById(id);
+    //  if (el && url) el.href = url;
+    //});
   } catch (e) {
     console.warn('Could not fetch release info:', e);
   }
